@@ -68,6 +68,7 @@ export async function POST(request: Request) {
 
         console.log(`Webhook: Found ${items.length} items in metadata`);
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const products = items.map((it: any) => ({
           productId: it.id || it.product?._id,
           name: it.name || it.product?.name,

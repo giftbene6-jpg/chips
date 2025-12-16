@@ -16,8 +16,10 @@ export async function GET(req: Request) {
     // Create order in Sanity if token present
     try {
       const items = Array.isArray(tx.metadata?.items) ? tx.metadata.items : [];
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const products = items.map((it: any) => ({ _type: "object", product: { _type: "reference", _ref: it.id }, quantity: it.quantity || 1 }));
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const orderDoc: any = {
         _type: "order",
         orderNumber: reference,

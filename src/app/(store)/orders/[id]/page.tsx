@@ -18,6 +18,7 @@ type Order = {
   products: Array<{
     quantity: number;
     price: number;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     product: { _id: string; name: string; price: number; currency: string; image?: any } | null;
   }>;
   customerName?: string;

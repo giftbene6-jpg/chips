@@ -14,6 +14,7 @@ export interface OrderData {
     name: string;
     price: number;
     quantity: number;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     image?: any;
   }[];
   totalPrice: number;
@@ -21,6 +22,7 @@ export interface OrderData {
   amountDiscount: number;
   status: string;
   orderDate?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   metadata?: any;
 }
 

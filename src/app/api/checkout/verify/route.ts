@@ -16,6 +16,7 @@ export async function GET(req: Request) {
 
       // Create order in Sanity
       try {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const products = items.map((it: any) => ({
             productId: it.id,
             name: it.name,
@@ -68,7 +69,7 @@ export async function GET(req: Request) {
     if (Array.isArray(meta.cartItems)) {
         items = meta.cartItems;
     } else if (typeof meta.cartItems === "string") {
-        try { items = JSON.parse(meta.cartItems); } catch(e) {}
+        try { items = JSON.parse(meta.cartItems); } catch { /* empty */ }
     } else if (Array.isArray(meta.items)) {
         items = meta.items;
     }
@@ -76,6 +77,7 @@ export async function GET(req: Request) {
     // If payment succeeded, create an order in Sanity (idempotent)
     try {
       if (data.status === "success") {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const products = items.map((it: any) => ({
             productId: it.id,
             name: it.name,

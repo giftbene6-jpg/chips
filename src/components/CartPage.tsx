@@ -1,18 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { useCart } from "@/context/CartProvider";
 import Image from "next/image";
 import { imageUrl } from "@/lib/imageUrl";
-import { useUser, SignInButton, ClerkLoaded, SignedIn } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
+import { useUser, SignInButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function CartPage() {
   const { items, updateQuantity, removeFromCart, totalItems, totalPrice, clearCart } = useCart();
   const { isSignedIn } = useUser();
-  const [processing, setProcessing] = useState(false);
-  const router = useRouter();
 
   return (
     <div className="max-w-4xl mx-auto p-4">

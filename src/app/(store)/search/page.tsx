@@ -8,12 +8,13 @@ import { getAllCategories } from "@/sanity/lib/products/getAllCategories";
 
 async function Page({
   searchParams,
-}:{
-  searchParams: {
-    query: string;
-  };
-}) { 
-  const { query = "", category = "" } = searchParams ?? { query: "", category: "" };
+}: {
+  searchParams: Promise<{
+    query?: string;
+    category?: string;
+  }>;
+}) {
+  const { query, category } = await searchParams;
   const products = await searchProductsByName(query, category);
   const categories = await getAllCategories();
 

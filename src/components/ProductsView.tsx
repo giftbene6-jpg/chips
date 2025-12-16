@@ -13,7 +13,8 @@ const ProductsView = ({ products, categories }: ProductsViewProps) => {
     {/*categories */}
     <div className="flex items-center justify-between w-full mb-4">
       <h2 className="text-xl font-semibold">Products</h2>
-      <CategorySelectorComponent categories={categories} />
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+      <CategorySelectorComponent categories={categories as any} />
     </div>
 
     {/*products */}

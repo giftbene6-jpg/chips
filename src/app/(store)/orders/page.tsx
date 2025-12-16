@@ -18,7 +18,9 @@ type Order = {
     productId: string;
     name: string;
     price: number;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     image?: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     product: { _id: string; name: string; price: number; currency: string; image?: any } | null;
   }>;
 };
@@ -74,7 +76,7 @@ export default function OrdersPage() {
         )}
 
         {!loading && orders && orders.map((order) => {
-          const subtotal = (order.totalPrice || 0) + (order.amountDiscount || 0);
+          // const subtotal = (order.totalPrice || 0) + (order.amountDiscount || 0);
           return (
             <div key={order._id} className="bg-white rounded-lg shadow-md p-6">
               <div className="flex justify-between items-start">

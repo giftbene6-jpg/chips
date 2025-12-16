@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { imageUrl } from "@/lib/imageUrl";
-import { Product } from "@/sanity.types";
+import { Product } from "../../sanity.types";
 
 interface ProductImageGalleryProps {
   product: Product;
@@ -11,6 +11,7 @@ interface ProductImageGalleryProps {
 
 interface MediaItem {
   type: 'image' | 'video';
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   asset: any;
   alt?: string;
 }
@@ -22,17 +23,20 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({ product }) =>
 
   // Combine main image with gallery items
   const mainImageItem = product.image ? { type: 'image' as const, asset: product.image } : null;
-  const galleryItems = product.gallery || [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const galleryItems = (product as any).gallery || [];
   
   // Create array of all media items (main image + gallery)
   const allMediaItems = [
     ...(mainImageItem ? [mainImageItem] : []),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ...galleryItems.map((item: any) => {
       // Check if it's an image or video based on the asset type
       if (item && '_type' in item) {
         return {
           type: item._type === 'image' ? 'image' as const : 'video' as const,
           asset: item,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           alt: (item as any).alt
         };
       }
@@ -108,6 +112,7 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({ product }) =>
           <video
             controls
             className="w-full h-full object-contain"
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             src={(selectedImage as any).asset?.url}
           >
             Your browser does not support the video tag.
