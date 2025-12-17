@@ -16,7 +16,7 @@
     "@sanity/image-url": "^1.2.0",
     "@sanity/vision": "^4.13.0",
     "dotenv": "^17.2.3",
-    "next": "15.0.2",
+    "next": "15.0.7",
     "next-sanity": "^11.6.4",
     "paystack": "^2.0.1",
     "react": "19.0.0-rc-02c0e824-20241028",
