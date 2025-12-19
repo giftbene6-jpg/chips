@@ -36,6 +36,12 @@ export async function GET(req: Request) {
   } catch (err) {
     // Add detailed error logging to debug the issue
     console.error("Error fetching orders:", err);
+    // Add more detailed error logging to identify the root cause
+    console.error("Error details:", {
+      message: err.message,
+      stack: err.stack,
+      name: err.name,
+    });
     return NextResponse.json({ error: "Failed to fetch orders" }, { status: 500 });
   }
 }
