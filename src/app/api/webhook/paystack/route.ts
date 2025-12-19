@@ -120,6 +120,13 @@ export async function POST(request: Request) {
           // Don't fail the entire webhook if AI analysis fails
         }
         
+        // Add detailed logging to debug webhook processing
+        console.log("Webhook: Raw body received:", rawBody);
+        console.log("Webhook: Event data:", JSON.stringify(event, null, 2));
+        console.log("Webhook: Metadata:", JSON.stringify(meta, null, 2));
+        console.log("Webhook: Products:", JSON.stringify(products, null, 2));
+        console.log("Webhook: Amount:", amount);
+
         const orderId = await createOrder({
           orderNumber: reference,
           paystackReference: reference,
