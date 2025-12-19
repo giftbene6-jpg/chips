@@ -6,36 +6,36 @@
 
 @layer base {
   :root {
-    /* Premium Classic & Vibrant Theme */
-    --background: 240 20% 98%; /* Soft off-white with hint of lavender */
-    --foreground: 240 10% 4%;
+    /* Luxurious Gold & Charcoal Theme */
+    --background: 40 20% 99%; /* Ivory/Soft White */
+    --foreground: 0 0% 7%;    /* Deep Charcoal */
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 4%;
+    --card-foreground: 0 0% 7%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 4%;
+    --popover-foreground: 0 0% 7%;
 
-    --primary: 262 80% 50%;     /* Electric Violet */
+    --primary: 43 74% 49%;     /* Rich Gold (#D4AF37) */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 240 10% 10%;   /* Deeper secondary for classic feel */
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 10%;     /* Midnight Charcoal */
+    --secondary-foreground: 43 74% 95%;
 
-    --muted: 240 5% 95%;
-    --muted-foreground: 240 4% 45%;
+    --muted: 40 10% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 262 80% 50%;
+    --accent: 43 74% 49%;      /* Gold Accent */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 262 80% 50%;
+    --border: 43 20% 90%;      /* Subtle Gold-tinted border */
+    --input: 43 20% 90%;
+    --ring: 43 74% 49%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;          /* More precise radius for luxury feel */
   }
 }
 
@@ -56,15 +56,24 @@
 
 @layer components {
   .glass-card {
-    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-xl;
+    @apply bg-white/60 backdrop-blur-xl border border-white/30 shadow-2xl;
   }
   
+  .lux-gradient-text {
+    @apply bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
   .premium-gradient-text {
-    @apply bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent opacity-90;
+    @apply bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 bg-clip-text text-transparent;
   }
   
   .classic-button {
-    @apply relative overflow-hidden bg-gray-900 text-white px-8 py-3 rounded-xl font-bold transition-all duration-300 hover:bg-black hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0;
+    @apply relative overflow-hidden bg-[#121212] text-[#D4AF37] px-8 py-3 border border-[#D4AF37]/30 rounded-none font-medium tracking-widest transition-all duration-500 hover:bg-[#D4AF37] hover:text-black hover:border-[#D4AF37] hover:shadow-[0_0_20px_rgba(212,175,55,0.3)];
+  }
+
+  .lux-border-bottom {
+    @apply border-b border-[#D4AF37]/20;
   }
 }
 
